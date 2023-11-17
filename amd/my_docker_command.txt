@@ -1,0 +1,12 @@
+#build docker
+# docker build -t amd-app .
+#run docker
+# docker run -p 5000:5000 amd-app
+#see running docker
+# docker ps
+#stop docker image
+# docker stop
+#see number of docker image
+# docker images
+#docker image remove
+# docker image rm -f amd-app
