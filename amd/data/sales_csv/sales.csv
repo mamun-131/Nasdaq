@@ -1,0 +1,19 @@
+﻿SL,Company,Symbol,Weight,      Price,Volume
+1,Apple Inc,AAPL,11.026,189.71,1.2
+2,Microsoft Corp,MSFT,10.33,376.17,2.2
+3,Amazon.com Inc,AMZN,5.66,142.83,3.4
+4,NVIDIA Corp,NVDA,4.615,494.8,0.9
+5,Meta Platforms Inc,META,3.942,334.19,0.22
+6,Broadcom Inc,AVGO,3.24,959.55,2.55
+7,Alphabet Inc,GOOGL,2.983,136.93,1.23
+8,Alphabet Inc,GOOG,2.956,138.73,2.41
+9,Tesla Inc,TSLA,2.835,233.59,0.11
+10,Adobe Inc,ADBE,2.223,602.06,0.54
+11,Costco Wholesale Corp,COST,2.114,578.58,3.4
+12,PepsiCo Inc,PEP,1.867,167.71,0.9
+13,Cisco Systems Inc,CSCO,1.748,48.04,0.22
+14,Netflix Inc,NFLX,1.604,466.95,2.55
+15,Advanced Micro Devices Inc,AMD,1.563,119.83,1.23
+16,T-Mobile US Inc,TMUS,1.396,147.51,2.41
+17,Comcast Corp,CMCSA,1.391,42.41,0.9
+18,Intel Corp,INTC,1.332,43.35,0.22
