@@ -19,7 +19,7 @@ sys.path.append(parent)
 import openai 
 import json
 import utils as common
-
+from src.logger import logging
 openai.api_key = common.get_openai_key()
 
 
@@ -40,5 +40,6 @@ class OpenAIGptPrompt:
             top_p=0.1
         )
         data = json.loads(response.json())
+        logging.info(response)
         return data['choices'][0]['message']['content']
         

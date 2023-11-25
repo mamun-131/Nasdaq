@@ -1,12 +1,16 @@
 #build docker
-# docker build -t amd-app .
+## docker build -t amd-app .
 #run docker
-# docker run -p 5000:5000 amd-app
+## docker run -d -p 5000:5000 amd-app
+
+# Once you run the docker image, you can now call the api. I have kept http just to avoid ssl issue during demonstration. 
+http://localhost:5000/api/v1/marketdataquery
+
 #see running docker
-# docker ps
+## docker ps
 #stop docker image
-# docker stop
+## docker stop <<container ID>>
 #see number of docker image
-# docker images
+## docker images
 #docker image remove
-# docker image rm -f amd-app
+## docker image rm -f amd-app

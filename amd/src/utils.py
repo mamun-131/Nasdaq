@@ -10,7 +10,7 @@ import os
 #reading open_ai key from .env.example file
 
 def get_openai_key():
-    filepath = os.getcwd() + '\src\\'
+    filepath = os.getcwd() + "/src/"
     apikey=""
     with open(r"" + filepath + ".env.example", "r") as readfile:
     #with open(r"" + filepath + "key.txt", "r") as readfile:
