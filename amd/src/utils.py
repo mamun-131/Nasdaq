@@ -6,13 +6,17 @@ Created on 2023-11-16
 """
 import json
 import os
+import sys
+from src.exception import CustomException
+from src.logger import logging
 
-#reading open_ai key from .env.example file
 
 def get_openai_key():
     filepath = os.getcwd() + "/src/"
     apikey=""
     with open(r"" + filepath + ".env.example", "r") as readfile:
-    #with open(r"" + filepath + "key.txt", "r") as readfile:
         apikey = json.load(readfile)["OPENAI_API_KEY"]
+        logging.info(apikey)
     return apikey 
+
+

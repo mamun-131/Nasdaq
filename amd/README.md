@@ -35,19 +35,21 @@ The following packages are needed to be installed. But you need to run the docke
 - Werkzeug==2.0.2
 - cryptography
 
+Go to app path first: ~/AMD
+After that apply docker command in CMD. Make sure you have desktop docker installed and its running.
 Docker commands:
 - build docker
 command: docker build -t amd-app .
 - run docker
 command: docker run -d -p 5000:5000 amd-app
 
-- Once you run the docker image, you can now call the api. I have kept http just to avoid ssl issue during demonstration. 
+- Once you run the docker image, you can now call the api. I have kept http (not htpps) just to avoid ssl issue in localhost during demonstration. 
 http://localhost:5000/api/v1/marketdataquery
 
 - see running docker
 command: docker ps
 - stop docker image
-command: docker stop <<container ID>>
+command: docker stop "container ID"
 - see number of docker image
 command: docker images
 - docker image remove

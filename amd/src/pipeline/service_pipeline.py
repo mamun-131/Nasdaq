@@ -6,13 +6,14 @@ Created on 2023-11-16
 """
 
 from src.pipeline.action_manager import ActionResult
+from src.logger import logging
 
 action_result = ActionResult()
 
 #Final response for user
-def gpt_response_for_user(request):
-    
+def gpt_response_for_user(request): 
     response = {"response_id": generate_uuid(), "response": action_result.final_action_result(request) }
+    logging.info("Final Response: " + str(response))
     return response
 
 def generate_uuid():

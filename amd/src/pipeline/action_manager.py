@@ -37,6 +37,7 @@ def intent_classification(user_query):
     instruction = instruction + "Also extract symbol or company code from user query. Response must be in JSON format. "
     instruction = instruction + 'Response example: [{"intent":"volume", "symbol":"AAPL"}]'
     chat_prompt_responses = chatgpt.chatgpt_prompt(user_query, instruction)
+    logging.info("GPT Response Intent and Entity Identification: " + str(chat_prompt_responses))
     return chat_prompt_responses 
 
 #Data Table query
@@ -45,9 +46,11 @@ def data_extraction(intent_entity):
     intent = json.loads(intent_entity)[0]['intent']
     data = df.loc[df['symbol'] == symbol]	
     json_data = data.to_json(orient='records')
-    return [{"market_info":json_data, "intent":intent}]
+    result =  [{"market_info":json_data, "intent":intent}]
+    logging.info("Extracted Data from Data File: " + str(result))
+    return result
 
-#GPT callfor finalresponse
+#GPT call for final response
 def final_user_response(user_query, data_query_result):
     chatgpt = OpenAIGptPrompt()
     instruction = "You are an inteliget vertual assistant. Based on user query on share market information we have retrive JSON data market_info from database and also the intent"
@@ -55,6 +58,7 @@ def final_user_response(user_query, data_query_result):
     instruction = instruction + "Just take a note that volumes of sales are in millions shares and price are in usd. "
     instruction = instruction + "JSON Data: " + str(data_query_result)
     chat_prompt_responses = chatgpt.chatgpt_prompt(user_query, instruction)
+    logging.info("Final GPT Response: " + str(chat_prompt_responses))
     return chat_prompt_responses 
 
 #Final action response

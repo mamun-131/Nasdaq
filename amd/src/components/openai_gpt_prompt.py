@@ -19,6 +19,7 @@ sys.path.append(parent)
 import openai 
 import json
 import utils as common
+from src.exception import CustomException
 from src.logger import logging
 openai.api_key = common.get_openai_key()
 
@@ -29,17 +30,22 @@ class OpenAIGptPrompt:
 
     #Openai Chatgpt API call     
     def chatgpt_prompt(self,user_query, instruction):
-        response = openai.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": instruction},
-                {"role": "user", "content": user_query},
+        try:
+            response = openai.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system", "content": instruction},
+                    {"role": "user", "content": user_query},
 
-            ],
-            temperature=0,
-            top_p=0.1
-        )
+                ],
+                temperature=0,
+                top_p=0.1
+            )
+        except Exception as e:
+            logging.info("Failed to gpt response.")
+            raise CustomException(e,sys)
+    
         data = json.loads(response.json())
-        logging.info(response)
+        logging.info("GPT Raw Response: " + str(response))
         return data['choices'][0]['message']['content']
         
